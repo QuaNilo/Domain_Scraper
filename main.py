@@ -32,9 +32,14 @@ def domain():
 
         return jsonify(response), 200
 
+
+    except whois.parser.PywhoisError as e:
+        app.logger.error(f'No match for "{domain}" : {str(e)}')
+        return jsonify({'success': True, 'data': {'results': 'No data found', 'message': f'{str(e)}', 'is_available': True}}), 200
+
     except Exception as e:
         app.logger.error(f'Failed to get info for domain : {str(e)}')
-        return jsonify( {'success': False, 'error': {'type': 'genericError', 'message': f'{str(e)}'}}), 500
+        return jsonify({'success': False, 'error': {'type': 'genericError', 'message': f'{str(e)}'}}), 500
 
 
 if __name__ == '__main__':
