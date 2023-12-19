@@ -1,16 +1,17 @@
 # Domains-API
 
-## Endpoints
+## Endpoint
 
 ## '/'
-    Methods ['GET']
-    Parameters [str:'domain']
+- Methods ['GET']  
+- Parameters [str: 'domain']
 
-    Example :
-    localhost/?domain=noop.pt
+Example  
+```localhost/?domain=noop.pt```
 
-    Output : 
-    {
+### Output 
+```
+{
     "data": {
         "results": {
             "address": [
@@ -58,7 +59,8 @@
     },
     "is_available": false,
     "success": true
-    }
+}
+```
 
 # Docker 
 ## Usage 
